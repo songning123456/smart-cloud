@@ -24,7 +24,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
 import java.net.URI;
@@ -79,14 +78,12 @@ public class DynamicRouteLoader implements ApplicationEventPublisherAware {
     /**
      * 刷新路由
      *
-     * @return
      */
-    public Mono<Void> refresh() {
+    public void refresh() {
         String dataType = GatewayRouteConfig.DATA_TYPE;
         if (!RouteType.yml.toString().endsWith(dataType)) {
             this.init();
         }
-        return Mono.empty();
     }
 
 

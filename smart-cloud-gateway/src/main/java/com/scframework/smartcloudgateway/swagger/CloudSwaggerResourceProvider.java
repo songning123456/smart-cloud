@@ -36,7 +36,7 @@ public class CloudSwaggerResourceProvider implements SwaggerResourcesProvider {
      * 网关应用名称
      */
     @Value("${spring.application.name}")
-    private String self;
+    private String springApplicationName;
 
     @Autowired
     public CloudSwaggerResourceProvider(RouteLocator routeLocator) {
@@ -48,7 +48,7 @@ public class CloudSwaggerResourceProvider implements SwaggerResourcesProvider {
         List<SwaggerResource> resources = new ArrayList<>();
         List<String> routeHosts = new ArrayList<>();
         // 获取所有可用的host:serviceId
-        routeLocator.getRoutes().filter(route -> route.getUri().getHost() != null).filter(route -> !self.equals(route.getUri().getHost())).subscribe(route -> routeHosts.add(route.getUri().getHost()));
+        routeLocator.getRoutes().filter(route -> route.getUri().getHost() != null).filter(route -> !springApplicationName.equals(route.getUri().getHost())).subscribe(route -> routeHosts.add(route.getUri().getHost()));
         // 记录已经添加过的server，存在同一个应用注册了多个服务在eureka上
         Set<String> dealSet = new HashSet<>();
         routeHosts.forEach(instance -> {
