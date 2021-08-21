@@ -66,17 +66,17 @@ public class GatewayRouteConfig {
         PASSWORD = password;
     }
 
-    @Value("${jeecg.route.config.data-id:#{null}}")
+    @Value("${smart.route.config.data-id:#{null}}")
     public void setRouteDataId(String dataId) {
         DATA_ID = dataId + ".json";
     }
 
-    @Value("${cloud.route.config.group:DEFAULT_GROUP:#{null}}")
+    @Value("${smart.route.config.group:DEFAULT_GROUP:#{null}}")
     public void setRouteGroup(String routeGroup) {
         ROUTE_GROUP = routeGroup;
     }
 
-    @Value("${cloud.route.config.data-type}")
+    @Value("${smart.route.config.data-type}")
     public void setDataType(String dataType) {
         DATA_TYPE = dataType;
     }

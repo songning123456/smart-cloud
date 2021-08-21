@@ -24,9 +24,9 @@ spring:
             allowedHeaders: "*"
       # 如果启用nacos或者数据库配置请删除一下配置
       routes:
-        - id: jeecg-demo
-          uri: lb://jeecg-demo
-          predicates:
+        - id: jeecg-demo # 路由ID，没有固定规则，但要求唯一
+          uri: lb://jeecg-demo # 匹配后提供的路由地址
+          predicates: # 断言，路径相匹配的进行路由
             - Path=/mock/**,/test/**,/bigscreen/template1/**,/bigscreen/template2/**
         - id: jeecg-system
           uri: lb://jeecg-system
