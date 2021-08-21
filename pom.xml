@@ -36,8 +36,6 @@
     </repositories>
 
     <properties>
-        <knife4j-spring-ui.version>2.0.9</knife4j-spring-ui.version>
-        <knife4j-spring-boot-starter.version>2.0.9</knife4j-spring-boot-starter.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <fastjson.version>1.2.76</fastjson.version>
@@ -124,6 +122,7 @@
 
     <modules>
         <module>smart-cloud-gateway</module>
+        <module>smart-cloud-common</module>
     </modules>
 
 </project>

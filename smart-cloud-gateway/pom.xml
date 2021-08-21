@@ -15,6 +15,11 @@
     <description>smart-cloud-gateway project for Spring Boot</description>
     <packaging>jar</packaging>
 
+    <properties>
+        <knife4j-spring-ui.version>2.0.9</knife4j-spring-ui.version>
+        <knife4j-spring-boot-starter.version>2.0.9</knife4j-spring-boot-starter.version>
+    </properties>
+
     <dependencies>
         <!-- spring-cloud网关 -->
         <dependency>
@@ -78,6 +83,11 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>${knife4j-spring-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.scframework</groupId>
+            <artifactId>smart-cloud-common</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
