@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.scframework.smartcloudgateway", "com.scframework.smartcloudcommon"})
 public class SmartCloudGatewayApplication {
 
     public static void main(String[] args) {

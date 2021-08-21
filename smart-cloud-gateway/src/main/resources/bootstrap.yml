@@ -14,4 +14,4 @@ smart:
     config:
       data-id:
       group:
-      data-type:
+      data-type: yml

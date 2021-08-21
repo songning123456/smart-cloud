@@ -6,12 +6,14 @@ import com.scframework.smartcloudcommon.entity.BaseMap;
 import com.scframework.smartcloudcommon.entity.SpringApplicationContext;
 import com.scframework.smartcloudcommon.redis.listener.RedisListenerService;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * @author sonin
  * @date 2021/8/21 15:43
  */
 @Data
+@Component
 public class RedisReceiver {
 
     /**
