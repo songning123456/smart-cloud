@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        enabled: false
+        username:
+        password:
+      discovery:
+        server-addr:
+        namespace:
+
+smart:
+  route:
+    config:
+      data-id:
+      group:
+      data-type:

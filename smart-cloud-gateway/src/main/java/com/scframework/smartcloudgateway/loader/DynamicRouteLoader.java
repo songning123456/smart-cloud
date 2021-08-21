@@ -10,7 +10,7 @@ import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.google.common.collect.Lists;
 import com.scframework.smartcloudcommon.constant.CacheConstant;
-import com.scframework.smartcloudcommon.util.RedisUtil;
+import com.scframework.smartcloudcommon.redis.util.RedisUtil;
 import com.scframework.smartcloudgateway.config.GatewayRouteConfig;
 import com.scframework.smartcloudgateway.enums.RouteType;
 import lombok.extern.slf4j.Slf4j;

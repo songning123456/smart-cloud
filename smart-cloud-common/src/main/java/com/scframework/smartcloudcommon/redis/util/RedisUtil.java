@@ -1,4 +1,4 @@
-package com.scframework.smartcloudcommon.util;
+package com.scframework.smartcloudcommon.redis.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
