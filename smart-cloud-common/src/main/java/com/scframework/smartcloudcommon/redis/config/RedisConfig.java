@@ -6,12 +6,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scframework.smartcloudcommon.constant.CacheConstant;
 import com.scframework.smartcloudcommon.constant.GlobalConstant;
 import com.scframework.smartcloudcommon.redis.receiver.RedisReceiver;
-import com.scframework.smartcloudcommon.redis.writer.CloudRedisCacheWriter;
+import com.scframework.smartcloudcommon.redis.writer.SmartCloudRedisCacheWriter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -29,9 +28,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Method;
 import java.time.Duration;
-import java.util.Arrays;
 
 import static java.util.Collections.singletonMap;
 
@@ -104,7 +101,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
         // 以锁写入的方式创建RedisCacheWriter对象
         // 注解CacheEvict根据key删除redis支持通配符*
-        RedisCacheWriter writer = new CloudRedisCacheWriter(factory, Duration.ofMillis(50L));
+        RedisCacheWriter writer = new SmartCloudRedisCacheWriter(factory, Duration.ofMillis(50L));
         //RedisCacheWriter.lockingRedisCacheWriter(factory);
         // 创建默认缓存配置对象
         // 默认配置，设置缓存有效期1小时

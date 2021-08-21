@@ -10,8 +10,9 @@ spring:
         namespace:
 
 smart:
-  route:
-    config:
-      data-id:
-      group:
-      data-type: yml
+  cloud:
+    route:
+      config:
+        data-id:
+        group:
+        data-type: yml

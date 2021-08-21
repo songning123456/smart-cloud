@@ -25,16 +25,16 @@ import java.util.function.Function;
  * 该类参照DefaultRedisCacheWriter重写了remove方法实现通配符*删除
  */
 @Slf4j
-public class CloudRedisCacheWriter implements RedisCacheWriter {
+public class SmartCloudRedisCacheWriter implements RedisCacheWriter {
 
     private final RedisConnectionFactory connectionFactory;
     private final Duration sleepTime;
 
-    public CloudRedisCacheWriter(RedisConnectionFactory connectionFactory) {
+    public SmartCloudRedisCacheWriter(RedisConnectionFactory connectionFactory) {
         this(connectionFactory, Duration.ZERO);
     }
 
-    public CloudRedisCacheWriter(RedisConnectionFactory connectionFactory, Duration sleepTime) {
+    public SmartCloudRedisCacheWriter(RedisConnectionFactory connectionFactory, Duration sleepTime) {
         Assert.notNull(connectionFactory, "ConnectionFactory must not be null!");
         Assert.notNull(sleepTime, "SleepTime must not be null!");
         this.connectionFactory = connectionFactory;
