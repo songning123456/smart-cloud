@@ -1,18 +1,40 @@
+server:
+  port: 9999
+
 spring:
+  application:
+    # 应用名
+    name: smart-cloud-gateway
+  profiles:
+    active: dev
   cloud:
+    #配置Bus id(远程推送事件)
+    bus:
+      id: ${spring.application.name}:${server.port}
     nacos:
       config:
-        enabled: false
-        username:
-        password:
+        enabled: true
+        username: nacos
+        password: nacos
+        # 服务器地址
+        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+        # 默认为Public命名空间，可以省略不写
+        namespace: Public
+        # 指定配置群组，如果是Public命名空间，则可以省略群组配置
+        group: DEFAULT_GROUP
+        # prefix文件名，如果没有配置则默认为${spring.application.name}
+        prefix:
+        # 指定文件后缀
+        file-extension: yaml
+        # DataID = ${spring.cloud.nacos.config.prefix}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
       discovery:
-        server-addr:
+        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
         namespace:
 
 smart:
   cloud:
     route:
       config:
-        data-id:
-        group:
-        data-type: yml
+        data-id: smart-cloud-gateway-router
+        group: DEFAULT_GROUP
+        data-type: nacos
