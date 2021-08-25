@@ -1,6 +1,7 @@
-package com.scframework.smartcloudcommon.redis.listener;
+package com.scframework.smartcloudgateway.redis.listener;
 
-import com.scframework.smartcloudcommon.entity.BaseMap;
+
+import com.scframework.smartcloudgateway.entity.BaseMap;
 
 /**
  * @author sonin

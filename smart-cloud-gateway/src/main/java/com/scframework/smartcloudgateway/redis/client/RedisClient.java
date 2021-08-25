@@ -1,7 +1,7 @@
-package com.scframework.smartcloudcommon.redis.client;
+package com.scframework.smartcloudgateway.redis.client;
 
-import com.scframework.smartcloudcommon.constant.GlobalConstant;
-import com.scframework.smartcloudcommon.entity.BaseMap;
+import com.scframework.smartcloudgateway.constant.GlobalConstant;
+import com.scframework.smartcloudgateway.entity.BaseMap;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 

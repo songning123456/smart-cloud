@@ -1,4 +1,4 @@
-package com.scframework.smartcloudcommon.constant;
+package com.scframework.smartcloudgateway.constant;
 
 /**
  * @author sonin

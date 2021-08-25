@@ -1,10 +1,10 @@
-package com.scframework.smartcloudcommon.redis.receiver;
+package com.scframework.smartcloudgateway.redis.receiver;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.scframework.smartcloudcommon.constant.GlobalConstant;
-import com.scframework.smartcloudcommon.entity.BaseMap;
-import com.scframework.smartcloudcommon.entity.SpringApplicationContext;
-import com.scframework.smartcloudcommon.redis.listener.RedisListenerService;
+import com.scframework.smartcloudgateway.constant.GlobalConstant;
+import com.scframework.smartcloudgateway.entity.BaseMap;
+import com.scframework.smartcloudgateway.entity.SpringApplicationContext;
+import com.scframework.smartcloudgateway.redis.listener.RedisListenerService;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 

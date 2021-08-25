@@ -1,4 +1,4 @@
-package com.scframework.smartcloudcommon.redis.writer;
+package com.scframework.smartcloudgateway.redis.writer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.PessimisticLockingFailureException;

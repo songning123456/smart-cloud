@@ -1,7 +1,7 @@
 package com.scframework.smartcloudgateway.service.impl;
 
-import com.scframework.smartcloudcommon.entity.BaseMap;
-import com.scframework.smartcloudcommon.redis.listener.RedisListenerService;
+import com.scframework.smartcloudgateway.entity.BaseMap;
+import com.scframework.smartcloudgateway.redis.listener.RedisListenerService;
 import com.scframework.smartcloudgateway.loader.DynamicRouteLoader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

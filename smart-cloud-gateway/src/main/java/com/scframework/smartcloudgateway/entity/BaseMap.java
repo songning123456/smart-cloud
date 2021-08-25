@@ -1,4 +1,4 @@
-package com.scframework.smartcloudcommon.entity;
+package com.scframework.smartcloudgateway.entity;
 
 import cn.hutool.core.util.ObjectUtil;
 import org.apache.commons.beanutils.ConvertUtils;

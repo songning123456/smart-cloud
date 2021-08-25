@@ -1,6 +1,6 @@
-package com.scframework.smartcloudcommon.config;
+package com.scframework.smartcloudgateway.config;
 
-import com.scframework.smartcloudcommon.entity.SpringApplicationContext;
+import com.scframework.smartcloudgateway.entity.SpringApplicationContext;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,12 +1,12 @@
-package com.scframework.smartcloudcommon.redis.config;
+package com.scframework.smartcloudgateway.redis.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.scframework.smartcloudcommon.constant.CacheConstant;
-import com.scframework.smartcloudcommon.constant.GlobalConstant;
-import com.scframework.smartcloudcommon.redis.receiver.RedisReceiver;
-import com.scframework.smartcloudcommon.redis.writer.SmartCloudRedisCacheWriter;
+import com.scframework.smartcloudgateway.constant.CacheConstant;
+import com.scframework.smartcloudgateway.constant.GlobalConstant;
+import com.scframework.smartcloudgateway.redis.receiver.RedisReceiver;
+import com.scframework.smartcloudgateway.redis.writer.SmartCloudRedisCacheWriter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
