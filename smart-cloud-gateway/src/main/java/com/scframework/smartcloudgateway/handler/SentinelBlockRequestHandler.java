@@ -37,4 +37,5 @@ public class SentinelBlockRequestHandler implements BlockRequestHandler {
         String resultString = "{\"code\":403,\"message\":\"服务开启限流保护，请稍后再试！\"}";
         return ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS).contentType(MediaType.APPLICATION_JSON_UTF8).body(BodyInserters.fromObject(resultString));
     }
+
 }

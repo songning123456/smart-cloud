@@ -20,6 +20,7 @@ public class SmartCloudGatewayStartupRunner implements CommandLineRunner {
 
     /**
      * 容器初始化后加载路由
+     *
      * @param args
      */
     @Override

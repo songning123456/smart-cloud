@@ -40,11 +40,6 @@ public class GatewayRouteConfig {
 
     public static String PASSWORD;
 
-    /**
-     * 路由配置文件数据获取方式yml，nacos，database
-     */
-    public static String DATA_TYPE;
-
     @Value("${spring.cloud.nacos.discovery.server-addr}")
     public void setServerAddr(String serverAddr) {
         SERVER_ADDR = serverAddr;
@@ -76,10 +71,6 @@ public class GatewayRouteConfig {
         ROUTE_GROUP = routeGroup;
     }
 
-    @Value("${smart.cloud.route.config.data-type}")
-    public void setDataType(String dataType) {
-        DATA_TYPE = dataType;
-    }
 
     @Resource
     private HystrixFallbackHandler hystrixFallbackHandler;
@@ -99,4 +90,5 @@ public class GatewayRouteConfig {
     public RouterFunction<ServerResponse> indexRouter(@Value("classpath:/META-INF/resources/doc.html") final org.springframework.core.io.Resource indexHtml) {
         return route(GET("/"), request -> ok().contentType(MediaType.TEXT_HTML).syncBody(indexHtml));
     }
+
 }
