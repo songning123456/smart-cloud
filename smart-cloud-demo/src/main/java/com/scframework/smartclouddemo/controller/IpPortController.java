@@ -24,6 +24,7 @@ public class IpPortController {
         HttpServletRequest request = requestAttributes.getRequest();
         String localAddr = request.getLocalAddr();
         int serverPort = request.getServerPort();
+        log.info("当前currentTime=> {}, ip:port=> {}:{}", System.currentTimeMillis(), localAddr, serverPort);
         return localAddr + ":" + serverPort;
     }
 
