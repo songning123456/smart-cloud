@@ -1,0 +1,14 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /smart-cloud-demo
+
+spring:
+  application:
+    # 应用名
+    name: smart-cloud-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+        namespace:
