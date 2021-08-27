@@ -15,12 +15,12 @@ import java.util.Set;
 
 /**
  * @author sonin
- * @date 2021/8/21 10:43
+ * @date 2021/8/26 9:06
  * 聚合各个服务的swagger接口
  */
 @Component
 @Slf4j
-public class CloudSwaggerResourceProvider implements SwaggerResourcesProvider {
+public class GatewaySwaggerResourceProvider implements SwaggerResourcesProvider {
 
     /**
      * swagger2默认的url后缀
@@ -39,7 +39,7 @@ public class CloudSwaggerResourceProvider implements SwaggerResourcesProvider {
     private String springApplicationName;
 
     @Autowired
-    public CloudSwaggerResourceProvider(RouteLocator routeLocator) {
+    public GatewaySwaggerResourceProvider(RouteLocator routeLocator) {
         this.routeLocator = routeLocator;
     }
 

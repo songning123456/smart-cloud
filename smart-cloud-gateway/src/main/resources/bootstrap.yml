@@ -8,9 +8,6 @@ spring:
   profiles:
     active: dev
   cloud:
-    #配置Bus id(远程推送事件)
-    bus:
-      id: ${spring.application.name}:${server.port}
     nacos:
       config:
         enabled: true
@@ -37,4 +34,3 @@ smart:
       config:
         data-id: smart-cloud-gateway-router
         group: DEFAULT_GROUP
-        data-type: nacos

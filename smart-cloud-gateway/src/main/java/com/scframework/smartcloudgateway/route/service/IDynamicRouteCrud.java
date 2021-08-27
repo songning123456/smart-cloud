@@ -1,4 +1,4 @@
-package com.scframework.smartcloudgateway.loader;
+package com.scframework.smartcloudgateway.route.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.cloud.gateway.support.NotFoundException;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 /**
@@ -21,8 +21,8 @@ import reactor.core.publisher.Mono;
  * *
  */
 @Slf4j
-@Service
-public class DynamicRouteService implements ApplicationEventPublisherAware {
+@Component
+public class IDynamicRouteCrud implements ApplicationEventPublisherAware {
 
     @Autowired
     private InMemoryRouteDefinitionRepository repository;
@@ -42,8 +42,8 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
      *
      * @param id
      */
-    public synchronized Mono<ResponseEntity<Object>> delete(String id) {
-        return this.repository.delete(Mono.just(id)).then(Mono.defer(() -> Mono.just(ResponseEntity.ok().build()))).onErrorResume((t) -> t instanceof NotFoundException, (t) -> Mono.just(ResponseEntity.notFound().build()));
+    private synchronized void delete(String id) {
+        this.repository.delete(Mono.just(id)).then(Mono.defer(() -> Mono.just(ResponseEntity.ok().build()))).onErrorResume((t) -> t instanceof NotFoundException, (t) -> Mono.just(ResponseEntity.notFound().build()));
     }
 
     /**
@@ -51,19 +51,14 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
      *
      * @param definition
      */
-    public synchronized String update(RouteDefinition definition) {
+    public synchronized void update(RouteDefinition definition) {
+        log.info("gateway prepare update route {}", definition);
         try {
-            log.info("gateway update route {}", definition);
             delete(definition.getId());
-        } catch (Exception e) {
-            return "update fail,not find route routeId: " + definition.getId();
-        }
-        try {
             repository.save(Mono.just(definition)).subscribe();
             this.publisher.publishEvent(new RefreshRoutesEvent(this));
-            return "success";
         } catch (Exception e) {
-            return "update route fail";
+            log.error("gateway update route error: {}", e.getMessage());
         }
     }
 
@@ -72,15 +67,13 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
      *
      * @param definition
      */
-    public synchronized String add(RouteDefinition definition) {
-        log.info("gateway add route {}", definition);
+    public synchronized void add(RouteDefinition definition) {
+        log.info("gateway prepare add route {}", definition);
         try {
             repository.save(Mono.just(definition)).subscribe();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("gateway add route error: {}", e.getMessage());
         }
-        return "success";
     }
 
 }
