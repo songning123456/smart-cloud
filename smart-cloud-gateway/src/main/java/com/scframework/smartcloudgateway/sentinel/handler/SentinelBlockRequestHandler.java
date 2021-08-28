@@ -18,6 +18,7 @@ import javax.annotation.PostConstruct;
 /**
  * @author sonin
  * @date 2021/8/28 10:42
+ * 自定义限流返回信息
  */
 @Slf4j
 @Component
