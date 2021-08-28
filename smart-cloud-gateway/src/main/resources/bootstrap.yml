@@ -31,16 +31,10 @@ spring:
       transport:
         # sentinel控制台访问路径
         dashboard: 192.168.2.121:8718
+        # sentinel服务访问端口
         port: 8719
       # 心跳启动
       eager: true
-      datasource:
-        ds:
-          nacos:
-            server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
-            dataId: sentinel-gateway.json
-            groupId: DEFAULT_GROUP
-            rule-type: flow
 
 smart:
   cloud:
