@@ -17,7 +17,7 @@ spring:
         server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
         # 默认为public命名空间，不要写public，public这个命名空间没有命名空间ID，否则客户端不断刷新配置
         namespace:
-        # 指定配置群组，如果是Public命名空间，则可以省略群组配置
+        # 指定配置群组，如果是public命名空间，则可以省略群组配置
         group: DEFAULT_GROUP
         # prefix文件名，如果没有配置则默认为${spring.application.name}
         prefix:
@@ -27,6 +27,20 @@ spring:
       discovery:
         server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
         namespace:
+    sentinel:
+      transport:
+        # sentinel控制台访问路径
+        dashboard: 192.168.2.121:8718
+        port: 8719
+      # 心跳启动
+      eager: true
+      datasource:
+        ds:
+          nacos:
+            server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+            dataId: sentinel-gateway.json
+            groupId: DEFAULT_GROUP
+            rule-type: flow
 
 smart:
   cloud:

@@ -71,6 +71,34 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>2.0.9</version>
         </dependency>
+        <!-- sentinel提供的gateway适配器 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
+        <!-- sentinel依赖包 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-web-servlet</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <!-- sentinel扩展nacos数据源的依赖 -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <!-- server-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
