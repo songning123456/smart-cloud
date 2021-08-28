@@ -88,12 +88,6 @@
             <artifactId>sentinel-web-servlet</artifactId>
             <version>1.8.0</version>
         </dependency>
-        <!-- sentinel扩展nacos数据源的依赖 -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-datasource-nacos</artifactId>
-            <version>1.8.0</version>
-        </dependency>
         <!-- server-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
