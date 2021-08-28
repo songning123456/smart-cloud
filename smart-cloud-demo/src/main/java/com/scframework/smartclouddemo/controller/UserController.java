@@ -1,6 +1,8 @@
 package com.scframework.smartclouddemo.controller;
 
 import com.scframework.smartclouddemo.entity.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 @Slf4j
+@Api(tags = "User接口")
 public class UserController {
 
-
     @GetMapping("/getById")
+    @ApiOperation(value = "User-根据Id查询", notes = "User-根据Id查询")
     public User getUserCtrl(@RequestParam(value = "id") String id) {
         User user = new User();
         user.setId(id);

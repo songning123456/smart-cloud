@@ -1,6 +1,9 @@
 package com.scframework.smartclouddemo.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -15,9 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/ip-port")
 @Slf4j
+@Api(tags = "IpPort接口")
 public class IpPortController {
 
-    @RequestMapping("/get")
+    @GetMapping("/get")
+    @ApiOperation(value = "IpPort-查询", notes = "IpPort-查询")
     private String getIpPortCtrl() {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         assert requestAttributes != null;
