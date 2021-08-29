@@ -1,6 +1,22 @@
 server:
   port: 9999
 
+smart:
+  cloud:
+    route:
+      config:
+        data-id: smart-cloud-gateway-router
+        group: DEFAULT_GROUP
+    nacos:
+      server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+      username: nacos
+      password: nacos
+    sentinel:
+      transport:
+        dashboard: 192.168.2.121:8718
+        port: 8719
+
+
 spring:
   application:
     # 应用名
@@ -11,10 +27,10 @@ spring:
     nacos:
       config:
         enabled: true
-        username: nacos
-        password: nacos
+        username: ${smart.cloud.nacos.username}
+        password: ${smart.cloud.nacos.password}
         # 服务器地址
-        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+        server-addr: ${smart.cloud.nacos.server-addr}
         # 默认为public命名空间，不要写public，public这个命名空间没有命名空间ID，否则客户端不断刷新配置
         namespace:
         # 指定配置群组，如果是public命名空间，则可以省略群组配置
@@ -25,20 +41,59 @@ spring:
         file-extension: yaml
         # DataID = ${spring.cloud.nacos.config.prefix}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
       discovery:
-        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+        server-addr: ${smart.cloud.nacos.server-addr}
         namespace:
     sentinel:
       transport:
         # sentinel控制台访问路径
-        dashboard: 192.168.2.121:8718
+        dashboard: ${smart.cloud.sentinel.transport.dashboard}
         # sentinel服务访问端口
-        port: 8719
+        port: ${smart.cloud.sentinel.transport.port}
       # 心跳启动
       eager: true
-
-smart:
-  cloud:
-    route:
-      config:
-        data-id: smart-cloud-gateway-router
-        group: DEFAULT_GROUP
+      datasource:
+        flow:
+          nacos:
+            server-addr: ${smart.cloud.nacos.server-addr}
+            username: ${smart.cloud.nacos.username}
+            password: ${smart.cloud.nacos.password}
+            namespace:
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-flow-rules
+            rule-type: flow
+        degrade:
+          nacos:
+            server-addr: ${smart.cloud.nacos.server-addr}
+            username: ${smart.cloud.nacos.username}
+            password: ${smart.cloud.nacos.password}
+            namespace:
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-degrade-rules
+            rule-type: degrade
+        param-flow:
+          nacos:
+            server-addr: ${smart.cloud.nacos.server-addr}
+            username: ${smart.cloud.nacos.username}
+            password: ${smart.cloud.nacos.password}
+            namespace:
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-param-rules
+            rule-type: param-flow
+        system:
+          nacos:
+            server-addr: ${smart.cloud.nacos.server-addr}
+            username: ${smart.cloud.nacos.username}
+            password: ${smart.cloud.nacos.password}
+            namespace:
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-system-rules
+            rule-type: system
+        authority:
+          nacos:
+            server-addr: ${smart.cloud.nacos.server-addr}
+            username: ${smart.cloud.nacos.username}
+            password: ${smart.cloud.nacos.password}
+            namespace:
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-authority-rules
+            rule-type: authority
