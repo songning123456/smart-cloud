@@ -1,0 +1,15 @@
+server:
+  port: 9998
+  servlet:
+    context-path: /smart-cloud-oauth2
+
+spring:
+  application:
+    # 应用名
+    name: smart-cloud-oauth2
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: 192.168.2.126
+    port: 6383
+    database: 2
