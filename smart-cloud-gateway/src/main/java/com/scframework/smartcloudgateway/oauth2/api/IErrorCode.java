@@ -1,4 +1,4 @@
-package com.scframework.smartcloudoauth2.api;
+package com.scframework.smartcloudgateway.oauth2.api;
 
 /**
  * @author sonin
@@ -10,6 +10,5 @@ public interface IErrorCode {
     long getCode();
 
     String getMessage();
-
 }
 

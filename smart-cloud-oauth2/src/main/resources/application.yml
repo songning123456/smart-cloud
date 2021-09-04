@@ -13,3 +13,8 @@ spring:
     host: 192.168.2.126
     port: 6383
     database: 2
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    cn.jay.repository: trace
