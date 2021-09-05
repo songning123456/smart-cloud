@@ -1,16 +1,32 @@
+smart:
+  cloud:
+    name: smart-cloud-oauth2
+    oauth2:
+      config:
+        data-id: smart-cloud-oauth2-token
+        group: DEFAULT_GROUP
+    nacos:
+      server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+      username: nacos
+      password: nacos
+
 server:
   port: 9998
   servlet:
-    context-path: /smart-cloud-oauth2
+    context-path: /${smart.cloud.name}
 
 spring:
   application:
     # 应用名
-    name: smart-cloud-oauth2
+    name: ${smart.cloud.name}
+  profiles:
+    active: dev
   cloud:
     nacos:
+      config:
+        enabled: false
       discovery:
-        server-addr: 192.168.2.121:8848,192.168.2.122:8848,192.168.2.123:8848
+        server-addr: ${smart.cloud.nacos.server-addr}
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   redis:

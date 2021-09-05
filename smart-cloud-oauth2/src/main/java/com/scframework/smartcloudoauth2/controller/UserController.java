@@ -20,6 +20,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * x-www-form.urlencoded 登录
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return Result<SaTokenInfoVO>
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result<SaTokenInfoVO> login(@RequestParam String username, @RequestParam String password) {
         Result<SaTokenInfoVO> result = new Result<>();

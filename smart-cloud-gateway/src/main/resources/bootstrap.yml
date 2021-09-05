@@ -1,8 +1,6 @@
-server:
-  port: 9999
-
 smart:
   cloud:
+    name: smart-cloud-gateway
     route:
       config:
         data-id: smart-cloud-gateway-router
@@ -16,11 +14,13 @@ smart:
         dashboard: 192.168.2.121:8718
         port: 8719
 
+server:
+  port: 9999
 
 spring:
   application:
     # 应用名
-    name: smart-cloud-gateway
+    name: ${smart.cloud.name}
   profiles:
     active: dev
   cloud:
