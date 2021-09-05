@@ -1,21 +1,24 @@
 package com.scframework.smartclouddemo.entity;
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.util.List;
 
 /**
  * @author sonin
- * @date 2021/8/27 8:17
+ * @date 2021/9/5 15:33
+ * 用户信息类
  */
 @Data
-@ApiModel(value="User对象", description="User对象")
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
+
     private Long id;
     private String username;
     private String password;
-    private List<String> roles;
+    private List<String> permissionList;
+
 }

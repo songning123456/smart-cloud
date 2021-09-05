@@ -1,10 +1,8 @@
 package com.scframework.smartclouddemo.controller;
 
-import com.scframework.smartclouddemo.component.LoginUserHolder;
+import cn.dev33.satoken.stp.StpUtil;
 import com.scframework.smartclouddemo.entity.User;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "User接口")
 public class UserController {
 
-    @Autowired
-    private LoginUserHolder loginUserHolder;
-
-    @GetMapping("/current-user")
-    @ApiOperation(value = "User-获取当前用户信息", notes = "User-获取当前用户信息")
-    public User currentUserCtrl() {
-        return loginUserHolder.getCurrentUser();
+    @GetMapping("/info")
+    public Object userInfo() {
+        return StpUtil.getSession().get("userInfo");
     }
 
 }

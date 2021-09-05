@@ -1,0 +1,31 @@
+package com.scframework.smartcloudgateway.oauth2.component;
+
+import cn.dev33.satoken.stp.StpInterface;
+import cn.dev33.satoken.stp.StpUtil;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author sonin
+ * @date 2021/9/5 16:30
+ * 自定义权限验证接口扩展
+ */
+@Component
+public class StpInterfaceImpl implements StpInterface {
+
+    @Override
+    public List<String> getPermissionList(Object loginId, String loginType) {
+        // 返回此 loginId 拥有的权限码列表
+        Map<String, Object> user = (Map<String, Object>) StpUtil.getSession().get("userInfo");
+        return (List<String>)user.get("permissionList");
+    }
+
+    @Override
+    public List<String> getRoleList(Object loginId, String loginType) {
+        // 返回此 loginId 拥有的角色码列表
+        return null;
+    }
+
+}

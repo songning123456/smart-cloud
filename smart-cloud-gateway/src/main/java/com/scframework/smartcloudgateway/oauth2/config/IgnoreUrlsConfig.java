@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * @author sonin
- * @date 2021/9/4 14:00
+ * @date 2021/9/5 16:31
+ * 网关白名单配置
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
