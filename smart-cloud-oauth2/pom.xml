@@ -87,12 +87,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
-        <!-- micro-sa-token通用依赖 -->
-        <dependency>
-            <groupId>com.macro.cloud</groupId>
-            <artifactId>micro-sa-token-common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 
     <build>

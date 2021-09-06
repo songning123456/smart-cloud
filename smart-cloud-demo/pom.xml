@@ -84,7 +84,7 @@
             <artifactId>sa-token-spring-boot-starter</artifactId>
             <version>1.24.0</version>
         </dependency>
-        <!-- Sa-Token 整合 Redis(使用jackson序列化方式) -->
+        <!-- Sa-Token整合Redis(使用jackson序列化方式) -->
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-dao-redis-jackson</artifactId>
@@ -94,11 +94,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.macro.cloud</groupId>
-            <artifactId>micro-sa-token-common</artifactId>
-            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
